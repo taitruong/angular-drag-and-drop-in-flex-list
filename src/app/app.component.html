@@ -1,0 +1,17 @@
+<div #rowLayout cdkDropListGroup>
+  <!-- based on row layout's width and item box width, columns per row can be calculated and a items table matrix is initialized-->
+  <div
+    *ngFor="let itemsRow of getItemsTable(rowLayout)"
+    cdkDropList
+    class="list"
+    cdkDropListOrientation="horizontal"
+    [cdkDropListData]="itemsRow"
+    (cdkDropListDropped)="reorderDroppedItem($event)"
+  >
+    <!-- drop reorders items and recalculates table matrix-->
+    <div class="box" *ngFor="let item of itemsRow" cdkDrag>
+      <div class="drag-placeholder" *cdkDragPlaceholder></div>
+      {{ item }}
+    </div>
+  </div>
+</div>
