@@ -25,7 +25,8 @@ export class AppComponent {
     const columnSize = Math.round(width / boxWidth);
 
     // calculate row size: items length / column size
-    const rowSize = Math.round(this.timePeriods.length / columnSize);
+    // add 0.5: round up so that last element is shown in next row
+    const rowSize = Math.round(this.timePeriods.length / columnSize + .5);
 
     // create table rows
     const copy = [...this.timePeriods];
